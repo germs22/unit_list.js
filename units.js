@@ -26,8 +26,17 @@ function ListArguments(UnitList) {
       specialValue.push(specialValueitem+"Contemporary");
     }
   }
- return ItemMake;
  
+  var obj = {
+    tyep:ItemType,
+     make: ItemMake,
+      Year:Itemyear,
+     specialVal: specialValue
+
+  }
+  return obj;
+  
+
 
 }
 /*
