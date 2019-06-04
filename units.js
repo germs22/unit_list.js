@@ -7,7 +7,7 @@ const UnitList = [
   {make: "Coachmen", type: "Motorhome", year: "2050"},
   {make: "Brent", type: "Combine", year: "2017"},
 ]
-function ListArguments(_UnitList) {
+function ListArguments(UnitList) {
 
   var ItemType = []
   var ItemMake = []
@@ -19,17 +19,15 @@ function ListArguments(_UnitList) {
     ItemMake.push(UnitList[i].make);
     Itemyear.push(UnitList[i].year);
 
-    let specialValue = $(UnitList[i].make + UnitList[i].type + UnitList[i].year);
+    let specialValueitem = UnitList[i].make + UnitList[i].type + UnitList[i].year;
     if (UnitList[i].year >= 2039) {
-      specialValue.push("Future tech")
+      specialValue.push(specialValueitem+"Future tech");
     } else {
-      specialValue.push("Contemporary")
-
+      specialValue.push(specialValueitem+"Contemporary");
     }
   }
-  console.log(ItemMake)
-  console.log(Itemyear)
-  console.log(ItemType)
+ return ItemMake;
+ 
 
 }
 /*
