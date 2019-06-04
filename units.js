@@ -14,9 +14,9 @@ function ListArguments(_UnitList) {
     var Itemyear = []
 
     for (i = 0; i < UnitList.length(); i++) {
-        ItemType.push(UnitList.type);
-        ItemMake.push(UnitList.make);
-        Itemyear.push(UnitList.year);
+        ItemType.push(UnitList[i].type);
+        ItemMake.push(UnitList[i].make);
+        Itemyear.push(UnitList[i].year);
 
     }
     console.log(ItemMake)
