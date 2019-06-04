@@ -1,12 +1,40 @@
-const UnitList = [
-  {make: "Harley Davidson", type: "motorcyle", year: "2019"},
-  {make: "Jayco", type: "Motorhome", year: "2018"},
-  {make: "John Deere", type: "Tractor", year: "2039"},
-  {make: "John Deere", type: "Combine", year: "2017"},
-  {make: "Vanderhall", type: "Trike", year: "2018"},
-  {make: "Coachmen", type: "Motorhome", year: "2050"},
-  {make: "Brent", type: "Combine", year: "2017"},
+const UnitList = [{
+    make: "Harley Davidson",
+    type: "motorcyle",
+    year: "2019"
+  },
+  {
+    make: "Jayco",
+    type: "Motorhome",
+    year: "2018"
+  },
+  {
+    make: "John Deere",
+    type: "Tractor",
+    year: "2039"
+  },
+  {
+    make: "John Deere",
+    type: "Combine",
+    year: "2017"
+  },
+  {
+    make: "Vanderhall",
+    type: "Trike",
+    year: "2018"
+  },
+  {
+    make: "Coachmen",
+    type: "Motorhome",
+    year: "2050"
+  },
+  {
+    make: "Brent",
+    type: "Combine",
+    year: "2017"
+  },
 ]
+
 function ListArguments(UnitList) {
 
   var ItemType = []
@@ -19,23 +47,23 @@ function ListArguments(UnitList) {
     ItemMake.push(UnitList[i].make);
     Itemyear.push(UnitList[i].year);
 
-    let specialValueitem = UnitList[i].make+" "+ UnitList[i].type +" "+ UnitList[i].year;
+    let specialValueitem = UnitList[i].make + " " + UnitList[i].type + " " + UnitList[i].year;
     if (UnitList[i].year >= 2039) {
-      specialValue.push(specialValueitem+" "+"Future tech");
+      specialValue.push(specialValueitem + " " + "Future tech");
     } else {
-      specialValue.push(specialValueitem + " " +"Contemporary");
+      specialValue.push(specialValueitem + " " + "Contemporary");
     }
   }
- 
+
   var itemsObject = {
-    tyep:ItemType,
-     make: ItemMake,
-      Year:Itemyear,
-     specialVal: specialValue
+    tyep: ItemType,
+    make: ItemMake,
+    Year: Itemyear,
+    specialVal: specialValue
 
   }
   return itemsObject;
-  
+
 
 
 }
