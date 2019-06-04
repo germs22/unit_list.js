@@ -14,27 +14,27 @@ function ListArguments(UnitList) {
   var Itemyear = []
   var specialValue = []
 
-  for (i = 0; i < UnitList.length(); i++) {
+  for (i = 0; i < UnitList.length; i++) {
     ItemType.push(UnitList[i].type);
     ItemMake.push(UnitList[i].make);
     Itemyear.push(UnitList[i].year);
 
-    let specialValueitem = UnitList[i].make + UnitList[i].type + UnitList[i].year;
+    let specialValueitem = UnitList[i].make+" "+ UnitList[i].type +" "+ UnitList[i].year;
     if (UnitList[i].year >= 2039) {
-      specialValue.push(specialValueitem+"Future tech");
+      specialValue.push(specialValueitem+" "+"Future tech");
     } else {
-      specialValue.push(specialValueitem+"Contemporary");
+      specialValue.push(specialValueitem + " " +"Contemporary");
     }
   }
  
-  var obj = {
+  var itemsObject = {
     tyep:ItemType,
      make: ItemMake,
       Year:Itemyear,
      specialVal: specialValue
 
   }
-  return obj;
+  return itemsObject;
   
 
 
