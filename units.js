@@ -9,19 +9,27 @@ const UnitList = [
 ]
 function ListArguments(_UnitList) {
 
-    var ItemType = []
-    var ItemMake = []
-    var Itemyear = []
+  var ItemType = []
+  var ItemMake = []
+  var Itemyear = []
+  var specialValue = []
 
-    for (i = 0; i < UnitList.length(); i++) {
-        ItemType.push(UnitList[i].type);
-        ItemMake.push(UnitList[i].make);
-        Itemyear.push(UnitList[i].year);
+  for (i = 0; i < UnitList.length(); i++) {
+    ItemType.push(UnitList[i].type);
+    ItemMake.push(UnitList[i].make);
+    Itemyear.push(UnitList[i].year);
+
+    let specialValue = $(UnitList[i].make + UnitList[i].type + UnitList[i].year);
+    if (UnitList[i].year >= 2039) {
+      specialValue.push("Future tech")
+    } else {
+      specialValue.push("Contemporary")
 
     }
-    console.log(ItemMake)
-    console.log(Itemyear)
-    console.log(ItemType)
+  }
+  console.log(ItemMake)
+  console.log(Itemyear)
+  console.log(ItemType)
 
 }
 /*
