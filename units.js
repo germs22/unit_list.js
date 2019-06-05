@@ -90,3 +90,28 @@ function ListArguments(UnitList) {
 
 // expected output: "123"
 
+/*
+ 
+
+
+*/
+const firstArr=[3,5,,2,"test","i"];
+const itemIndex = 3;
+
+function mytest2(firstArr,itemIndex ){
+
+  var f = firstArr[itemIndex]
+
+  if( typeof f == "number" ){
+    firstArr[itemIndex] = 1;
+  } else if (typeof f == "string"){
+    firstArr[itemIndex] = 2;
+  } else if (typeof f == "undefined"){
+    firstArr[itemIndex] = 0;
+  }else{
+    firstArr[itemIndex] = -1;
+  }
+
+  return firstArr;
+
+}
