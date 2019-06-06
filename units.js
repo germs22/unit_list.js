@@ -96,7 +96,7 @@ function ListArguments(UnitList) {
 
 */
 const firstArr=[3,5,,2,"test","i"];
-const itemIndex = 3;
+
 
 function mytest2(firstArr,itemIndex ){
 
@@ -115,65 +115,3 @@ function mytest2(firstArr,itemIndex ){
   return firstArr;
 
 } 
-<div class="Imagecontainer">
-    <ul class="item">
-        <li class="col-sm-4">[[image.item1]]
-			<div class="overlay">
-				<div class="text">[[text.item1]]</div>
-			 </div>
-		</li>
-        <li class="col-sm-4">[[image.item2]]
-		<div class="overlay">
-				<div class="text">[[text.item2]]</div>
-			 </div></li>
-        <li class="col-sm-4">[[image.item3]]
-		<div class="overlay">
-				<div class="text">[[text.item3]]</div>
-			 </div></li>
-        <li class="col-sm-4">[[image.item4]]
-		<div class="overlay">
-				<div class="text">[[text.item4]]</div>
-			 </div>
-		</li>
-        <li class="col-sm-4">[[image.item5]]
-		<div class="overlay">
-				<div class="text">[[text.item5]]</div>
-			 </div></li>
-        <li class="col-sm-4">[[image.item6]]
-		<div class="overlay">
-				<div class="text">[[text.item6]]</div>
-			 </div></li>     
-        <li class="col-sm-4">[[image.item7]]
-		<div class="overlay">
-				<div class="text">[[text.item7]]</div>
-			 </div></li>
-        <li class="col-sm-4">[[image.item8]]
-		<div class="overlay">
-				<div class="text">[[text.item8]]</div>
-			 </div></li>
-        <li class="col-sm-4">[[image.item9]]
-		<div class="overlay">
-				<div class="text">[[text.item9]]</div>
-			 </div></li>
-        <li class="col-sm-4">[[image.item10]]
-		<div class="overlay">
-				<div class="text">[[text.item10]]</div>
-			 </div></li>
-        <li class="col-sm-4">[[image.item11]]
-		<div class="overlay">
-				<div class="text">[[text.item11]]</div>
-			 </div></li>
-        <li class="col-sm-4">[[image.item12]]
-		<div class="overlay">
-				<div class="text">[[text.item12]]</div>
-			 </div></li>
-        <li class="col-sm-4">[[image.item13]]
-		<div class="overlay">
-				<div class="text">[[text.item13]]</div>
-			 </div></li>
-        <li class="col-sm-4">[[image.item14]]
-		<div class="overlay">
-				<div class="text">[[text.item13]]</div>
-			 </div></li>
-    </ul>
-</div4
