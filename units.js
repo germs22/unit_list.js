@@ -116,6 +116,8 @@ function mytest2(firstArr,itemIndex ){
 
 } 
 
+
+
 const SecondArr=[3,5,,2,"test","i"];
 
 
