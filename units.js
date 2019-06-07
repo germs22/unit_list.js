@@ -155,3 +155,16 @@ for(i = 0; i < SecondArr.length;i++){
   return SecondArr;
 
 }    
+
+function checkvehicleId(Vehicles, vehicleid) {
+  for(i=0;i< Vehicles.length;i++){
+    if(vehicleid == Vehicles[i].id){
+      return Vehicles[i];
+    }else{
+      //console.log("empty")
+    }
+
+  }
+
+  return null;
+}
