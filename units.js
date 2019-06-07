@@ -115,9 +115,25 @@ function mytest2(firstArr,itemIndex ){
   return firstArr;
 
 } 
+/**section*/
+const arrayitem = [];
 
+function secondfunction(seed) {
 
+  for (i = 0; i <= 9; i++) {
 
+    seed = seed + i;
+
+    var res = seed * seed;
+
+    arrayitem.push(res);
+
+  }
+
+  return arrayitem;
+
+}
+/**section*/
 const SecondArr=[3,5,,2,"test","i"];
 
 
