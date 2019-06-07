@@ -115,3 +115,25 @@ function mytest2(firstArr,itemIndex ){
   return firstArr;
 
 } 
+
+const SecondArr=[3,5,,2,"test","i"];
+
+
+function mytest3(SecondArr){
+
+  var f = SecondArr[i]
+for(i = 0; i < SecondArr.length;i++){
+  var f= SecondArr[i];
+    if( typeof f == "number" ){
+      SecondArr[i] = 1;
+    } else if (typeof f == "string"){
+      SecondArr[i] = 2;
+    } else if (typeof f == "undefined"){
+      SecondArr[i] = 0;
+    }else{
+      SecondArr[i] = -1;
+    }
+}
+  return SecondArr;
+
+} 
