@@ -168,3 +168,62 @@ function checkvehicleId(Vehicles, vehicleid) {
 
   return null;
 }
+
+
+/*sadjkfjsdkfsdjkfsdajklfsdajkfhsdafhsadfjksd*/
+
+getb = id => Vehicles.filter(veh => veh.id == id)[0]
+
+function getVehById(id) {
+  function filterVeh(veh) {
+    return veh.id == id
+  }
+  return Vehicles.filter(filterVeh)[0];
+}
+
+
+
+/*
+ * showDownPayment()
+ *
+ * Input: none
+ *
+ * Description: for all the units on the inventory page:
+ *   1. add a click event handler to the "View Details" button that toggles the modal
+ *      and writes the value of the vehicles "est_down_payment" attribute (found in the
+ *      vehicle objects "PaymentsJSON" attribute) to the modal header.
+ *
+ * output:
+ *   returns: none
+ *
+ * Notes:
+ *
+ * Things to look up:
+ *   1. event.preventDefault()
+ *   2. bootstrap 3.3 modals
+ *   3. document.querySelectorAll
+ *   4. document.addEventListener
+ *
+ * 
+ * 
+ * 
+ *  Helper code
+ * let temp = document.querySelectorAll('<selector>');
+ * let myArr = [].map.call(temp ,el => el)
+ * 
+ */
+
+
+ function showDownPayment(){
+  
+  let temp = document.querySelectorAll('.vehicle_row');
+
+  let vehicle_row_array = [temp].map.call(temp, el => el)
+
+  for(i = 0; i < vehicle_row_array.length;i++){
+    var arrayitem = vehicle_row_array[i];
+    let vehice_detail_btn = arrayitem.querySelector('.invViewDetails')
+    console.log(vehice_detail_btn);
+  }
+  
+ }
