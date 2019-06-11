@@ -225,11 +225,11 @@ function getVehById(id) {
      let vehice_detail_btn = arrayitem.querySelector('.invViewDetails');
 
      console.log(vehice_detail_btn);
-     var aTags = document.querySelector('.invViewDetails a');
+     var aTags = vehice_detail_btn.querySelector('a');
 
      const invViewDetailLink = aTags;
 
-     console.log(invViewDetailLink);
+
      invViewDetailLink.addEventListener('click', function (e) {
        e.preventDefault()
      });
