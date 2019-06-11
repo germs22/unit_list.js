@@ -214,16 +214,25 @@ function getVehById(id) {
  */
 
 
- function showDownPayment(){
-  
-  let temp = document.querySelectorAll('.vehicle_row');
+ function showDownPayment() {
 
-  let vehicle_row_array = [temp].map.call(temp, el => el)
+   let temp = document.querySelectorAll('.vehicle_row');
 
-  for(i = 0; i < vehicle_row_array.length;i++){
-    var arrayitem = vehicle_row_array[i];
-    let vehice_detail_btn = arrayitem.querySelector('.invViewDetails')
-    console.log(vehice_detail_btn);
-  }
-  
+   let vehicle_row_array = [].map.call(temp, el => el)
+
+   for (i = 0; i < vehicle_row_array.length; i++) {
+     var arrayitem = vehicle_row_array[i];
+     let vehice_detail_btn = arrayitem.querySelector('.invViewDetails');
+
+     console.log(vehice_detail_btn);
+     var aTags = document.querySelector('.invViewDetails a');
+
+     const invViewDetailLink = aTags;
+
+     console.log(invViewDetailLink);
+     invViewDetailLink.addEventListener('click', function (e) {
+       e.preventDefault()
+     });
+   }
+
  }
