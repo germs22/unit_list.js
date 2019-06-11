@@ -210,7 +210,7 @@ function getVehById(id) {
  *  Helper code
  * let temp = document.querySelectorAll('<selector>');
  * let myArr = [].map.call(temp ,el => el)
- * 
+ * site to be used https: //thunderdome.clients.dealerspike.net/default.asp?page=xAllInventory
  */
 
 
