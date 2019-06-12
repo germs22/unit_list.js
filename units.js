@@ -203,9 +203,6 @@ function getVehById(id) {
  *   2. bootstrap 3.3 modals
  *   3. document.querySelectorAll
  *   4. document.addEventListener
- *
- * 
- * 
  * 
  *  Helper code
  * let temp = document.querySelectorAll('<selector>');
