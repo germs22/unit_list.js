@@ -172,7 +172,7 @@ function checkvehicleId(Vehicles, vehicleid) {
 
 /*sadjkfjsdkfsdjkfsdajklfsdajkfhsdafhsadfjksd*/
 
-getb = id => Vehicles.filter(veh => veh.id == id)[0]
+let getb = id => Vehicles.filter(veh => veh.id == id)[0]
 
 function getVehById(id) {
   function filterVeh(veh) {
@@ -213,25 +213,33 @@ function getVehById(id) {
  * site to be used https: //thunderdome.clients.dealerspike.net/default.asp?page=xAllInventory
  */
 
-
  function showDownPayment() {
 
    let temp = document.querySelectorAll('.vehicle_row');
-
    let vehicle_row_array = [].map.call(temp, el => el)
 
+   let getb = id => Vehicles.filter(veh => veh.id == id)[0]
    for (i = 0; i < vehicle_row_array.length; i++) {
      var arrayitem = vehicle_row_array[i];
-     let vehice_detail_btn = arrayitem.querySelector('.invViewDetails');
-
-     console.log(vehice_detail_btn);
-     var aTags = vehice_detail_btn.querySelector('a');
-
-     const invViewDetailLink = aTags;
-
+     let rel_id = arrayitem.getAttribute('rel');
+     let vehice_detail_btn = arrayitem.querySelector('.invViewDetails a');
+     const invViewDetailLink = vehice_detail_btn;
 
      invViewDetailLink.addEventListener('click', function (e) {
-       e.preventDefault()
+       e.preventDefault();
+       var iditem = getb(rel_id);;
+       var payment = iditem.PaymentsJSON.est_down_payment;
+
+
+       $('#modalBox').modal('show');
+
+       if (payment != null) {
+
+         $('#modalBox .modal-dialog .modal-header h2').text("Monthey Payment: "+payment);
+       } else {
+         $('#modalBox .modal-dialog .modal-header h2').text("No down payment Available");
+       }
+
      });
    }
 
