@@ -218,10 +218,15 @@ function getVehById(id) {
 
    let temp = document.querySelectorAll('.vehicle_row');
 
+   
+   
    let vehicle_row_array = [].map.call(temp, el => el)
 
    for (i = 0; i < vehicle_row_array.length; i++) {
      var arrayitem = vehicle_row_array[i];
+
+     var vehicle_Id = arrayitem.getAttribute("rel");
+
      let vehice_detail_btn = arrayitem.querySelector('.invViewDetails');
 
      console.log(vehice_detail_btn);
@@ -231,8 +236,15 @@ function getVehById(id) {
 
 
      invViewDetailLink.addEventListener('click', function (e) {
-       e.preventDefault()
-     });
+       e.preventDefault();
+
+       $('#modalBox').modal();
+        
+       function check_payment(Vehicles,vehicle_Id){
+          for(x=0;x<Vehicles.length;i++){}
+       }
+        
+      });
    }
 
  }
