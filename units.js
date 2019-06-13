@@ -207,32 +207,38 @@ function getVehById(id) {
  *  Helper code
  * let temp = document.querySelectorAll('<selector>');
  * let myArr = [].map.call(temp ,el => el)
- * site to be used https: //thunderdome.clients.dealerspike.net/default.asp?page=xAllInventory
+ * site to be used https://thunderdome.clients.dealerspike.net/default.asp?page=xAllInventory
  */
 
  function showDownPayment() {
 
    let temp = document.querySelectorAll('.vehicle_row');
+
    let vehicle_row_array = [].map.call(temp, el => el)
 
    let getb = id => Vehicles.filter(veh => veh.id == id)[0]
+
    for (i = 0; i < vehicle_row_array.length; i++) {
+
      var arrayitem = vehicle_row_array[i];
+
      let rel_id = arrayitem.getAttribute('rel');
+
      let vehice_detail_btn = arrayitem.querySelector('.invViewDetails a');
+
      const invViewDetailLink = vehice_detail_btn;
 
      invViewDetailLink.addEventListener('click', function (e) {
        e.preventDefault();
-       var iditem = getb(rel_id);;
-       var payment = iditem.PaymentsJSON.est_down_payment;
 
+       var iditem = getb(rel_id);;
+
+       var payment = iditem.PaymentsJSON.est_down_payment;
 
        $('#modalBox').modal('show');
 
        if (payment != null) {
-
-         $('#modalBox .modal-dialog .modal-header h2').text("Monthey Payment: "+payment);
+         $('#modalBox .modal-dialog .modal-header h2').text("Monthey Payment: $"+payment+ "per Month");
        } else {
          $('#modalBox .modal-dialog .modal-header h2').text("No down payment Available");
        }
