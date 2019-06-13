@@ -216,7 +216,7 @@ function getVehById(id) {
 
    let vehicle_row_array = [].map.call(temp, el => el)
 
-   let getb = id => Vehicles.filter(veh => veh.id == id)[0]
+   //let getb = id => Vehicles.filter(veh => veh.id == id)[0]
 
    for (i = 0; i < vehicle_row_array.length; i++) {
 
@@ -247,3 +247,69 @@ function getVehById(id) {
    }
 
  }
+
+//modification of the function
+function showDownPayment() {
+
+  let temp = document.querySelectorAll('.vehicle_row');
+
+  let vehicle_row_array = [].map.call(temp, el => el)
+  for (i = 0; i < vehicle_row_array.length; i++) {
+
+    var arrayitem = vehicle_row_array[i];
+
+    let vehice_detail_btn = arrayitem.querySelector('.invViewDetails');
+
+    const invViewDetailLink = vehice_detail_btn;
+
+    invViewDetailLink.addEventListener('click', function (e) {
+      e.preventDefault();
+      var payment = Vehicles[i].PaymentsJSON.est_down_payment;
+      $('#modalBox').modal('show');
+
+      if (payment != null) {
+        $('#modalBox .modal-dialog .modal-header h2').text("Monthey Payment: $" + payment + "per Month");
+      } else {
+        $('#modalBox .modal-dialog .modal-header h2').text("No down payment Available");
+      }
+
+    });
+  }
+
+}
+
+ /*
+  * LHS lookup:
+  *
+  * looking up an identifier for writing
+  *
+  * input: identifier name (String)
+  *
+  * Process:
+  *   1. Select the current active scope
+  *   2. Search the current active scope list of identifier name.
+  *   3. If we find a matching identifier declaration:
+  *   4.   return the identifier for writing
+  *   5. If we do not find a matching identifier declaration
+  *   6.   If the current active scope is the global scope
+  *   7.     create a new identifier in the global scope and return that identifier for writing
+  *   8.   If the current active scope is not the global scope
+  *   9.     select the current active scopes parent to be the "new current active scope"
+  *  10.     go back to step 2
+  *
+  */
+const identifier = {
+  name: "variableName",
+  value: "variableValue",
+}
+
+const scope = {
+  parent: scopeObject,
+  name: "scopeName",
+  identifiers: [{
+      name: "name",
+      value: "value"
+    },
+    
+  ]
+};
