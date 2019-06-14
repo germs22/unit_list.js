@@ -352,6 +352,7 @@ const treeHead = undefined; // To be provided
 
 
 function LHSLookup(identifierName) {
+  //identifeier function to be funing 
   function findIdentifier(identifierName, currentScope) {
     const identifiers = currentScope.identifiers;
     for (let i = 0; i < identifiers.length; i++) {
