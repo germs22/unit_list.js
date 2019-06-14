@@ -313,3 +313,67 @@ const scope = {
     
   ]
 };
+
+/*
+ * LHS lookup:
+ *
+ * looking up an identifier for writing
+ *
+ * input: identifier name (String)
+ *
+ * Process:
+ *   1. Select the current active scope
+ *   2. Search the current active scope list of identifier name.
+ *   3. If we find a matching identifier declaration:
+ *   4.   return the identifier for writing
+ *   5. If we do not find a matching identifier declaration
+ *   6.   If the current active scope is the global scope
+ *   7.     create a new identifier in the global scope and return that identifier for writing
+ *   8.   If the current active scope is not the global scope
+ *   9.     select the current active scopes parent to be the "new current active scope"
+ *  10.     go back to step 2
+ *
+ *
+ * Things To Lookup:
+ *   - reading object attributes
+ *   - conditional statements
+ *   - do while loops, for/while loops
+ *
+ *   const scope = {
+ *      parent: null,
+        name: null,
+        identifiers: [
+          {name: "name", value: "value"},
+        ]
+     };
+ */
+const treeHead = undefined; // To be provided
+
+
+
+function LHSLookup(identifierName) {
+  function findIdentifier(identifierName, currentScope) {
+    const identifiers = currentScope.identifiers;
+    for (let i = 0; i < identifiers.length; i++) {
+      let identifier = identifiers[i];
+      if (identifier.name == identifierName)
+        return identifier;
+    }
+
+    return null;
+  }
+
+  let currentScope = treeHead;
+  while (currentScope != undefined) {
+    let matchingIdentifier = findIdentifier(identifierName, currentScope);
+    if (matchingIdentifier != null) {
+      return matchingIdentifier;
+    } else {
+      if (isGlobalSCope(currentScope)) { // TODO
+        return createIdentifier(currentScope) // TODO
+      } else {
+        currentScope = getParent(currentScope); // TODO
+      }
+    }
+  }
+}
