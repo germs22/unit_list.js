@@ -335,33 +335,140 @@ const scope = {
  *
  *
  * Things To Lookup:
- *   - reading object attributes
- *   - conditional statements
+ *   - reading and writing object attributes
+ *   - conditional statements (if else)
  *   - do while loops, for/while loops
- *
- *   const scope = {
- *      parent: null,
-        name: null,
-        identifiers: [
-          {name: "name", value: "value"},
-        ]
-     };
  */
-const treeHead = undefined; // To be provided
+
+function Identifier(name, value) {
+  this.name = name;
+  this.value = value;
+}
+
+function ScopeBlock(parent, name, identifiers) {
+  this.parent = parent;
+  this.name = name;
+  this.identifiers = identifiers || [];
+}
+
+const scope = {
+  parent: null,
+  name: null,
+  identifiers: [{
+    name: "name",
+    value: "value"
+  }, ]
+};
 
 
+let treeHead;
 
-function LHSLookup(identifierName) {
-  //identifeier function to be funing 
-  function findIdentifier(identifierName, currentScope) {
-    const identifiers = currentScope.identifiers;
-    for (let i = 0; i < identifiers.length; i++) {
-      let identifier = identifiers[i];
-      if (identifier.name == identifierName)
-        return identifier;
+function buildTree() {
+  function findScope(scopes, name) {
+    for (let i = 0; i < scopes.length; i++) {
+      if (scopes[i].name == name) return scopes[i];
     }
 
     return null;
+  }
+
+  const scopeList = [{
+      parent: "null",
+      name: "global",
+      identifiers: [{
+          name: "foo",
+          value: "a"
+        },
+        {
+          name: "dog",
+          value: "bark"
+        },
+      ]
+    },
+
+    {
+      parent: "global",
+      name: "f_level1_child1",
+      identifiers: [{
+          name: "google",
+          value: "bezos"
+        },
+        {
+          name: "eagle",
+          value: "flies"
+        },
+      ]
+    },
+    {
+      parent: "global",
+      name: "f_level1_child2",
+      identifiers: [{
+          name: "sink",
+          value: "and die"
+        },
+        {
+          name: "swim",
+          value: "and live"
+        },
+      ]
+    },
+    {
+      parent: "f_level1_child1",
+      name: "f_level2_child1",
+      identifiers: [{
+        name: "black",
+        value: "eye"
+      }, ]
+    },
+    {
+      parent: "f_level2_child1",
+      name: "f_level3_child1",
+      identifiers: [{
+        name: "last",
+        value: "Level"
+      }, ]
+    },
+    {
+      parent: "f_level1_child2",
+      name: "f_level2_child3",
+      identifiers: [{
+        name: "new",
+        value: "Level"
+      }, ]
+    },
+  ];
+
+  let scopes = [];
+
+  scopeList.forEach(scope => {
+    let newScope = {
+      parent: findScope(scopes, scope.parent),
+      name: scope.name,
+      identifiers: scope.identifiers
+    };
+
+    treeHead = newScope;
+    scopes.push(newScope);
+  });
+}
+
+buildTree();
+
+function LHSLookup(identifierName) {
+  function findIdentifier(identifierName, currentScope) {
+    /* create function here */
+  }
+
+  function createIdentifier(currentScope) {
+    /* create function here */
+  }
+
+  function isGlobalScope(currentScope) {
+    /* create function here */
+  }
+
+  function getParent(currentScope) {
+    /* create function here */
   }
 
   let currentScope = treeHead;
@@ -370,10 +477,10 @@ function LHSLookup(identifierName) {
     if (matchingIdentifier != null) {
       return matchingIdentifier;
     } else {
-      if (isGlobalSCope(currentScope)) { // TODO
-        return createIdentifier(currentScope) // TODO
+      if (isGlobalScope(currentScope)) {
+        return createIdentifier(currentScope)
       } else {
-        currentScope = getParent(currentScope); // TODO
+        currentScope = getParent(currentScope);
       }
     }
   }
