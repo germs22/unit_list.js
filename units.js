@@ -385,7 +385,6 @@ function buildTree() {
         },
       ]
     },
-
     {
       parent: "global",
       name: "f_level1_child1",
