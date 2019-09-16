@@ -172,7 +172,7 @@ function checkvehicleId(Vehicles, vehicleid) {
 
 /*sadjkfjsdkfsdjkfsdajklfsdajkfhsdafhsadfjksd*/
 
-getb = id => Vehicles.filter(veh => veh.id == id)[0]
+let getb = id => Vehicles.filter(veh => veh.id == id)[0]
 
 function getVehById(id) {
   function filterVeh(veh) {
@@ -203,16 +203,12 @@ function getVehById(id) {
  *   2. bootstrap 3.3 modals
  *   3. document.querySelectorAll
  *   4. document.addEventListener
- *
- * 
- * 
  * 
  *  Helper code
  * let temp = document.querySelectorAll('<selector>');
  * let myArr = [].map.call(temp ,el => el)
- * site to be used https: //thunderdome.clients.dealerspike.net/default.asp?page=xAllInventory
+ * site to be used https://thunderdome.clients.dealerspike.net/default.asp?page=xAllInventory
  */
-
 
  function showDownPayment() {
 
@@ -222,22 +218,29 @@ function getVehById(id) {
    
    let vehicle_row_array = [].map.call(temp, el => el)
 
+   //let getb = id => Vehicles.filter(veh => veh.id == id)[0]
+
    for (i = 0; i < vehicle_row_array.length; i++) {
+
      var arrayitem = vehicle_row_array[i];
+<<<<<<< HEAD
 
      var vehicle_Id = arrayitem.getAttribute("rel");
 
      let vehice_detail_btn = arrayitem.querySelector('.invViewDetails');
+=======
+>>>>>>> 75f22a440da5121ab37706f421048f12bd0ec468
 
-     console.log(vehice_detail_btn);
-     var aTags = vehice_detail_btn.querySelector('a');
+     let rel_id = arrayitem.getAttribute('rel');
 
-     const invViewDetailLink = aTags;
+     let vehice_detail_btn = arrayitem.querySelector('.invViewDetails a');
 
+     const invViewDetailLink = vehice_detail_btn;
 
      invViewDetailLink.addEventListener('click', function (e) {
        e.preventDefault();
 
+<<<<<<< HEAD
        $('#modalBox').modal();
         
        function check_payment(Vehicles,vehicle_Id){
@@ -245,6 +248,258 @@ function getVehById(id) {
        }
         
       });
+=======
+       var iditem = getb(rel_id);;
+
+       var payment = iditem.PaymentsJSON.est_down_payment;
+
+       $('#modalBox').modal('show');
+
+       if (payment != null) {
+         $('#modalBox .modal-dialog .modal-header h2').text("Monthey Payment: $"+payment+ "per Month");
+       } else {
+         $('#modalBox .modal-dialog .modal-header h2').text("No down payment Available");
+       }
+
+     });
+>>>>>>> 75f22a440da5121ab37706f421048f12bd0ec468
    }
 
  }
+
+//modification of the function
+function showDownPayment() {
+
+  let temp = document.querySelectorAll('.vehicle_row');
+
+  let vehicle_row_array = [].map.call(temp, el => el)
+  for (i = 0; i < vehicle_row_array.length; i++) {
+
+    var arrayitem = vehicle_row_array[i];
+
+    let vehice_detail_btn = arrayitem.querySelector('.invViewDetails');
+
+    const invViewDetailLink = vehice_detail_btn;
+
+    invViewDetailLink.addEventListener('click', function (e) {
+      e.preventDefault();
+      var payment = Vehicles[i].PaymentsJSON.est_down_payment;
+      $('#modalBox').modal('show');
+
+      if (payment != null) {
+        $('#modalBox .modal-dialog .modal-header h2').text("Monthey Payment: $" + payment + "per Month");
+      } else {
+        $('#modalBox .modal-dialog .modal-header h2').text("No down payment Available");
+      }
+
+    });
+  }
+
+}
+
+ /*
+  * LHS lookup:
+  *
+  * looking up an identifier for writing
+  *
+  * input: identifier name (String)
+  *
+  * Process:
+  *   1. Select the current active scope
+  *   2. Search the current active scope list of identifier name.
+  *   3. If we find a matching identifier declaration:
+  *   4.   return the identifier for writing
+  *   5. If we do not find a matching identifier declaration
+  *   6.   If the current active scope is the global scope
+  *   7.     create a new identifier in the global scope and return that identifier for writing
+  *   8.   If the current active scope is not the global scope
+  *   9.     select the current active scopes parent to be the "new current active scope"
+  *  10.     go back to step 2
+  *
+  */
+const identifier = {
+  name: "variableName",
+  value: "variableValue",
+}
+
+const scope = {
+  parent: scopeObject,
+  name: "scopeName",
+  identifiers: [{
+      name: "name",
+      value: "value"
+    },
+    
+  ]
+};
+
+/*
+ * LHS lookup:
+ *
+ * looking up an identifier for writing
+ *
+ * input: identifier name (String)
+ *
+ * Process:
+ *   1. Select the current active scope
+ *   2. Search the current active scope list of identifier name.
+ *   3. If we find a matching identifier declaration:
+ *   4.   return the identifier for writing
+ *   5. If we do not find a matching identifier declaration
+ *   6.   If the current active scope is the global scope
+ *   7.     create a new identifier in the global scope and return that identifier for writing
+ *   8.   If the current active scope is not the global scope
+ *   9.     select the current active scopes parent to be the "new current active scope"
+ *  10.     go back to step 2
+ *
+ *
+ * Things To Lookup:
+ *   - reading and writing object attributes
+ *   - conditional statements (if else)
+ *   - do while loops, for/while loops
+ */
+
+function Identifier(name, value) {
+  this.name = name;
+  this.value = value;
+}
+
+function ScopeBlock(parent, name, identifiers) {
+  this.parent = parent;
+  this.name = name;
+  this.identifiers = identifiers || [];
+}
+
+const scope = {
+  parent: null,
+  name: null,
+  identifiers: [{
+    name: "name",
+    value: "value"
+  }, ]
+};
+
+
+let treeHead;
+
+function buildTree() {
+  function findScope(scopes, name) {
+    for (let i = 0; i < scopes.length; i++) {
+      if (scopes[i].name == name) return scopes[i];
+    }
+
+    return null;
+  }
+
+  const scopeList = [{
+      parent: "null",
+      name: "global",
+      identifiers: [{
+          name: "foo",
+          value: "a"
+        },
+        {
+          name: "dog",
+          value: "bark"
+        },
+      ]
+    },
+    {
+      parent: "global",
+      name: "f_level1_child1",
+      identifiers: [{
+          name: "google",
+          value: "bezos"
+        },
+        {
+          name: "eagle",
+          value: "flies"
+        },
+      ]
+    },
+    {
+      parent: "global",
+      name: "f_level1_child2",
+      identifiers: [{
+          name: "sink",
+          value: "and die"
+        },
+        {
+          name: "swim",
+          value: "and live"
+        },
+      ]
+    },
+    {
+      parent: "f_level1_child1",
+      name: "f_level2_child1",
+      identifiers: [{
+        name: "black",
+        value: "eye"
+      }, ]
+    },
+    {
+      parent: "f_level2_child1",
+      name: "f_level3_child1",
+      identifiers: [{
+        name: "last",
+        value: "Level"
+      }, ]
+    },
+    {
+      parent: "f_level1_child2",
+      name: "f_level2_child3",
+      identifiers: [{
+        name: "new",
+        value: "Level"
+      }, ]
+    },
+  ];
+
+  let scopes = [];
+
+  scopeList.forEach(scope => {
+    let newScope = {
+      parent: findScope(scopes, scope.parent),
+      name: scope.name,
+      identifiers: scope.identifiers
+    };
+
+    treeHead = newScope;
+    scopes.push(newScope);
+  });
+}
+
+buildTree();
+
+function LHSLookup(identifierName) {
+  function findIdentifier(identifierName, currentScope) {
+    /* create function here */
+  }
+
+  function createIdentifier(currentScope) {
+    /* create function here */
+  }
+
+  function isGlobalScope(currentScope) {
+    /* create function here */
+  }
+
+  function getParent(currentScope) {
+    /* create function here */
+  }
+
+  let currentScope = treeHead;
+  while (currentScope != undefined) {
+    let matchingIdentifier = findIdentifier(identifierName, currentScope);
+    if (matchingIdentifier != null) {
+      return matchingIdentifier;
+    } else {
+      if (isGlobalScope(currentScope)) {
+        return createIdentifier(currentScope)
+      } else {
+        currentScope = getParent(currentScope);
+      }
+    }
+  }
+}
